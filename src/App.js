@@ -1,6 +1,6 @@
 import DisplayExpenses from "./components/Expenses/DisplayExpenses";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -29,6 +29,6 @@ function App() {
   ];
 
   return <DisplayExpenses expenses_list={expenses} />;
-}
+};
 
 export default App;
