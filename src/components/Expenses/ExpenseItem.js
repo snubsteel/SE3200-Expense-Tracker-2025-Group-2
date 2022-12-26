@@ -4,7 +4,7 @@ import Card from "../UI/Card";
 
 function ExpenseItem(props) {
   const clickHandler = () => {
-    console.log("Clicked!!");
+    console.log("Clicked!!!");
   };
 
   return (
