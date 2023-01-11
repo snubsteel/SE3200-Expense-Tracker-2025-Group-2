@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
@@ -5,10 +7,10 @@ import Card from "../UI/Card";
 // gonna learn about states now!
 
 function ExpenseItem(props) {
-  let title = props.title;
+  const [title, setTitle] = useState(props.title); // these are hooks
 
   const clickHandler = () => {
-    title = "Updated!!!";
+    setTitle("Updated!!");
     //console.log("Clicked!!!");
   };
 
