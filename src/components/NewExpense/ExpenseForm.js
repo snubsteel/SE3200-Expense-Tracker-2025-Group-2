@@ -2,6 +2,8 @@ import React from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {};
+const ExpenseForm = () => {
+    return <form></form>
+};
 
 export default ExpenseForm;
