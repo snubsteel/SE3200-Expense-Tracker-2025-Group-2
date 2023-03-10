@@ -1,5 +1,8 @@
 import DisplayExpenses from "./components/Expenses/DisplayExpenses";
 
+import NewExpense from "./components/NewExpense/NewExpense";
+
+
 const App = () => {
   const expenses = [
     {
@@ -28,7 +31,13 @@ const App = () => {
     },
   ];
 
-  return <DisplayExpenses expenses_list={expenses} />;
+  return (
+  <div>
+     <NewExpense />
+     <DisplayExpenses expenses_list={expenses} />
+  
+  </div>
+ );
 };
 
 export default App;
