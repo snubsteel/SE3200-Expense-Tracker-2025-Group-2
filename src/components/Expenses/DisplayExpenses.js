@@ -19,7 +19,7 @@ function DisplayExpenses(props) {
 
       <Card className="expenses">
 
-        <ExpensesFilter onFilterChange={filterChangeHandler}/>
+        <ExpensesFilter selected={filterYear} onFilterChange={filterChangeHandler}/>
 
         <ExpenseItem
           title={props.expenses_list[0].title}
