@@ -14,6 +14,8 @@ function DisplayExpenses(props) {
     // console.log(year);
   }
 
+  const filteredExpenses = props.expenses_list.filter(expense => expense.date.getFullYear().toString() == filterYear);
+
   return (
     <div>
 
@@ -21,14 +23,18 @@ function DisplayExpenses(props) {
 
         <ExpensesFilter selected={filterYear} onFilterChange={filterChangeHandler}/>
 
-        {props.expenses_list.map((i) => (
+        {filteredExpenses.length === 0 && (<p>Mo expenses found.</p>)}
+        
+        {
+          filteredExpenses.length > 0 && 
+          (filteredExpenses.map((i) => (
           <ExpenseItem
             key={i.id}
             title={i.title}
             amount={i.amount}
             date={i.date}
           /> 
-        )
+        ))
         )}
 
 
