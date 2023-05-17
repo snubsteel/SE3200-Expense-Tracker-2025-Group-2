@@ -3,6 +3,7 @@ import ExpenseItem from "./ExpenseItem";
 import "./DisplayExpenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
+import ExpensesChart from "./ExpensesChart";
 
 function DisplayExpenses(props) {
 
@@ -22,6 +23,8 @@ function DisplayExpenses(props) {
       <Card className="expenses">
 
         <ExpensesFilter selected={filterYear} onFilterChange={filterChangeHandler}/>
+
+        <ExpensesChart expenses={filteredExpenses} />
 
         {filteredExpenses.length === 0 && (<p>Mo expenses found.</p>)}
         
