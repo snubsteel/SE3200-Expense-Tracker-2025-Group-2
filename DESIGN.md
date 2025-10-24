@@ -10,6 +10,15 @@
 **GitHub Repository:** [View Repo](https://github.com/snubsteel/SE3200-Expense-Tracker-2025-Group-2)
 **Project Board** [View Project Board](https://github.com/users/snubsteel/projects/1)
 
+### Milestone 1 Compliance Checklist
+
+- [x] Team members listed
+- [x] Link to forked GitHub repository
+- [x] Link to public Project Board (GitHub Projects)
+- [x] Backend Design Document with:
+  - [x] Database schema (Users, Expenses, Categories) and relationships
+  - [x] REST API specification with endpoints and request/response structures
+
 ---
 
 ## 2. Backend Design Overview
@@ -40,6 +49,14 @@ We use a hybrid architecture:
 - Express layers: in-process function calls (Controller → Service → Repository).
 - Repository ⇄ PostgreSQL: ORM over a pooled DB connection.
 
+### Assumptions & Non‑Functional Requirements (brief)
+
+- Multi-user: each user's data is isolated (row-level ownership on all tables).
+- Security: JWT-based auth, hashed passwords (bcrypt), input validation, CORS, rate limiting.
+- Reliability: server logs errors with structured JSON.
+- Performance: basic pagination for lists; indexed queries by user/date/category.
+- Portability: containerized services; environment-based configuration.
+
 ### Deployment Target
 
 Railway: one service for API, one service for PostgreSQL. Environment variables for secrets (JWT_SECRET, DB_URL).
@@ -54,7 +71,9 @@ Railway: one service for API, one service for PostgreSQL. Environment variables 
 - **User (1) — (∞) Category**
 - **Category (1) — (∞) Expense** (nullable; uncategorized allowed)
 
-**Tables**
+**Diagrams**
+
+![Expense Tracker ERD](assets/erd.png)
 
 **users**
 
@@ -96,6 +115,24 @@ Railway: one service for API, one service for PostgreSQL. Environment variables 
 
 ## 4. REST API Specification
 
+**Endpoint Summary (quick scan)**
+
+| Resource   | Method | Path                    | Purpose                    |
+| ---------- | ------ | ----------------------- | -------------------------- |
+| Auth       | POST   | `/api/auth/register`    | Create user                |
+| Auth       | POST   | `/api/auth/login`       | Obtain JWT                 |
+| Auth       | GET    | `/api/auth/me`          | Current user               |
+| Categories | GET    | `/api/categories`       | List                       |
+| Categories | POST   | `/api/categories`       | Create                     |
+| Categories | PUT    | `/api/categories/:id`   | Update                     |
+| Categories | DELETE | `/api/categories/:id`   | Remove                     |
+| Expenses   | GET    | `/api/expenses`         | Query (filters/pagination) |
+| Expenses   | POST   | `/api/expenses`         | Create                     |
+| Expenses   | GET    | `/api/expenses/:id`     | Read                       |
+| Expenses   | PUT    | `/api/expenses/:id`     | Update                     |
+| Expenses   | DELETE | `/api/expenses/:id`     | Remove                     |
+| Reports    | GET    | `/api/expenses/summary` | Aggregations               |
+
 **Auth**
 
 - `POST /api/auth/register`
@@ -129,10 +166,38 @@ Railway: one service for API, one service for PostgreSQL. Environment variables 
 - `PUT /api/expenses/:id` → update expense
 - `DELETE /api/expenses/:id` → 204
 
+**Example Objects**
+
+```json
+// Category
+{ "id":"<uuid>", "user_id":"<uuid>", "name":"Food", "color":"#33AA77", "created_at":"2025-10-24T12:00:00Z" }
+
+// Expense
+{ "id":"<uuid>", "user_id":"<uuid>", "category_id":"<uuid|null>", "amount_cents":1299, "currency":"USD",
+  "occurred_on":"2025-10-23", "note":"Lunch", "created_at":"2025-10-24T12:00:00Z", "updated_at":"2025-10-24T12:05:00Z" }
+```
+
 **Reports**
 
 - `GET /api/expenses/summary?from=2025-10-01&to=2025-10-31&groupBy=category`
   - Res 200: `{ "rows":[ { "category":"Food","amount_cents": 34567 }, ... ] }`
+
+**Error Model**  
+All error responses use HTTP status codes and the shape:
+
+```json
+{
+  "error": {
+    "code": "STRING_CODE",
+    "message": "Human-readable",
+    "details": [
+      /* optional */
+    ]
+  }
+}
+```
+
+Common codes: `VALIDATION_ERROR`, `AUTH_REQUIRED`, `FORBIDDEN`, `NOT_FOUND`, `CONFLICT`, `RATE_LIMITED`.
 
 **Conventions**
 
