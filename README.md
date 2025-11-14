@@ -57,3 +57,152 @@ npm start
 - The Expense Tracker project is based on the React - The Complete Guide (incl Hooks, React Router, Redux) course by Academind by Maximilian Schwarzmüller on Udemy.
 
 Enjoy tracking your expenses with Expense Tracker!
+
+---
+
+# Expense Tracker — Local Development Guide
+
+This project is a full-stack expense tracker built with React, Express, and PostgreSQL.  
+Users can register, log in, add expenses, and see their data persist.
+
+---
+
+## Features
+
+- Register and log in with secure password hashing.
+- JWT-based authentication with automatic session restore.
+- Add expenses with date, and amount.
+- Data saved to PostgreSQL.
+- Filter expenses by year.
+- Logout and clear session.
+- Fully connected backend + frontend.
+
+---
+
+## Project Structure
+
+/
+├── server/ # Express backend
+│ ├── src/
+│ │ ├── routes/
+│ │ ├── middleware/
+│ │ ├── validators/
+│ │ └── db.js
+│ └── package.json
+│
+├── src/ # React frontend
+│ ├── api/
+│ ├── components/
+│ └── App.js
+│
+├── database/
+│ └── setup_db.sql # Creates DB + tables
+│
+├── README.md
+└── DEV_LOG.md
+
+---
+
+## Getting Started (Local Setup)
+
+Follow these steps to run both the frontend and backend locally.
+
+---
+
+### 1. Install Required Software
+
+- Node.js (v18+)
+- PostgreSQL 14+
+- pgAdmin4 (optional)
+
+---
+
+### 2. Create the Database
+
+**Using psql:**
+
+```sh
+psql -U postgres
+CREATE DATABASE tracker_db;
+\c tracker_db
+\i database/setup_db.sql;
+Or with pgAdmin:
+
+Create database → name it tracker_db
+
+Run setup_db.sql to create tables
+
+3. Configure Environment Variables
+Inside /server, create a .env file:
+
+DATABASE_URL=postgres://postgres:pass@localhost:5432/tracker_db
+JWT_SECRET=dev_secret_123
+PORT=4000
+Update the password
+
+4. Install Dependencies
+Frontend (root):
+npm install
+Backend:
+cd server
+npm install
+
+5. Start the Backend
+cd server
+npm run dev
+Backend runs at:
+http://localhost:4000
+Expected console output:
+API listening on port 4000 (development)
+
+6. Start the Frontend
+In the project root:
+npm start
+Frontend runs at:
+http://localhost:3000
+
+Testing the Application
+
+Register
+Open app → Register
+Enter email, password (8+ chars), and name
+Expect:
+Success message
+Auto-login
+No errors
+
+Login
+Use an existing account
+Expect:
+Successful login
+Session persists after refresh
+Data loads from DB
+
+Add an Expense
+Check DB:
+SELECT * FROM expenses ORDER BY created_at DESC;
+Expense should appear
+
+Refresh browser → expense still displays
+
+Logout
+Click Logout
+
+All expense data clears
+
+Token removed from localStorage
+
+Redirected to login screen
+
+Technologies Used
+Frontend: React
+
+Backend: Express (Node.js)
+
+Database: PostgreSQL
+
+Auth: JWT + bcrypt
+
+Validation: Joi
+
+Security: helmet, cors, rate-limiting

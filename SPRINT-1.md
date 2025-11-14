@@ -125,3 +125,4 @@ Research how Railway deployment works in preparation for milestone 3.
 </details>
 
 ## Milestone 2 Progress Summary:  
+For milestone 2, the group now has a working full-stack system. A user can register an account, log in, and stay authenticated through page refreshes. The user can add expenses, which are saved to the PostgreSQL database. When the page reloads, the app restores the session using the stored token and loads the user’s expense history from the backend. All core requirements for milestone 2 are complete.

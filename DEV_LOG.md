@@ -40,3 +40,32 @@
 5. Prepare `/api/summary` route for expense totals by date and category.
 
 ---
+
+# 2025-11-14 — Backend + Frontend Integration Completed
+
+## Work Completed
+
+- Finished full backend implementation: Express server, PostgreSQL pool, route structure, validation, and error handling.
+- Added authentication flow (register, login, JWT handling, `/auth/me`) with bcrypt hashing and Joi validation.
+- Added expenses API: create expense, list expenses (scoped to logged-in user), validation, and route protection with `authRequired`.
+- Improved server security with `helmet`, `cors`, and rate-limiting; resolved rate-limit proxy warnings.
+- Connected frontend to backend through new `src/api/client.js` with token storage and request helpers.
+- Replaced dummy React state with live API data.
+- Added logout support and token-based session restore on refresh.
+- Updated year-filter logic and fixed dropdown behavior issues.
+- Added frontend error handling for invalid passwords and registration problems.
+- Added feedback messages surfacing backend validation errors.
+- Verified persistent expense storage in PostgreSQL; tested with multiple accounts.
+
+## Testing Done
+
+- Ran backend `/health` check.
+- Registered multiple accounts and confirmed validation behavior.
+- Logged in/out and confirmed token persistence and clearing.
+- Added expenses with various dates and verified DB entries.
+- Reloaded pages to confirm auto-login and persistent expense display.
+- Checked DB tables using pgAdmin and psql.
+
+## Next Steps
+
+- Begin Milestone 3 planning.

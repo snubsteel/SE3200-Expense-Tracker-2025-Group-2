@@ -12,6 +12,9 @@ import expensesRouter from './routes/expenses.js';
 
 const app = express();
 
+// Trust a single proxy (e.g., load balancer) so express-rate-limit can honor X-Forwarded-For headers safely.
+app.set('trust proxy', 1);
+
 // Security-related middleware comes first so every request gets headers, CORS,
 // and JSON parsing before it reaches any business logic.
 app.use(helmet());

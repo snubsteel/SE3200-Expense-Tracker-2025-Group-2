@@ -6,7 +6,7 @@ export function errorHandler(err, req, res, next) {
   const message = err.message || 'Unexpected error occurred.';
 
   if (process.env.NODE_ENV !== 'production') {
-    // During development we log the full error to help with debugging.
+    // During development, log the full error to help with debugging.
     console.error(err);
   }
 
