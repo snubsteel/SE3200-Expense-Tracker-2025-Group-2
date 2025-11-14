@@ -1,0 +1,38 @@
+### Health
+GET http://localhost:4000/health
+
+### Register
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "Password123",
+  "name": "Test User"
+}
+
+### Login
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "Password123"
+}
+
+### List expenses
+GET http://localhost:4000/api/expenses
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Create expense
+POST http://localhost:4000/api/expenses
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+  "amount_cents": 1299,
+  "currency": "USD",
+  "occurred_on": "2025-11-14",
+  "category_id": null,
+  "note": "Test lunch"
+}
