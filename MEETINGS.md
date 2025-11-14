@@ -79,3 +79,37 @@ Seth Pederson - Build backend server, implement authentication system, probably 
 Winifred Halm De-Souza - Continue looking into frontend integration  
 Reggie Womack - Continue looking into frontend integration  
 David Hammond - Work on database connection
+
+# Week 12 Meeting Information:  
+Date/Time: 11/13/25, 9:00 PM  
+Meeting Purpose: Week 12 stand-up meeting for milestone 2  
+Meeting location: Discord group chat  
+Note Taker: David Hammond  
+
+## Attendees:  
+Seth Pederson  
+Winifred Halm De-Souza  
+David Hammond  
+
+## Agenda:  
+- Report progress from week 11
+- Identify remaining requirements for milestone 2  
+- Declare personal focus for upcoming week  
+
+## Topics discussed:  
+- Report progress from week 11 (All attendees)
+- Remaining requirements for milestone 2:  
+      1. Integrate React front-end with backend  
+- Attendee personal focus for upcoming week (David Hammond)  
+    - Encouraged each attendee to declare what they will be working on during the upcoming week.
+    - Recorded responses in meeting minutes.  
+
+## Progress Report for previous week (week 11):  
+Seth Pederson - Successfully implemented project backend, database connection, and user authentication system.  Almost finished implementing integration between frontend and backend.  
+Winifred Halm De-Souza - Wrote progress summary for SPRINT-1.md.  Learned about frontend integration.  
+David Hammond - Studied basics of React.  Downloaded repository and followed instructions from Seth to verify that project ran locally without issue.  Studied updated project repository.  
+
+## Attendee focus for upcoming week:  
+Seth Pederson -  (Will update after looking at milestone 3 requirements)  
+Winifred Halm De-Souza -  Add progress summary to SPRINT-1.md.  
+David Hammond - Create SPRINT-1.md, add GitHub Projects link & minutes from weeks 10, 11, and 12 to SPRINT-1.md.  Study repository code for better understanding of project.  Research how Railway deployment works in preparation for milestone 3.  
