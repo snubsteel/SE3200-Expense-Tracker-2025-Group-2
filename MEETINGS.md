@@ -110,6 +110,6 @@ Winifred Halm De-Souza - Wrote progress summary for SPRINT-1.md.  Learned about 
 David Hammond - Studied basics of React.  Downloaded repository and followed instructions from Seth to verify that project ran locally without issue.  Studied updated project repository.  
 
 ## Attendee focus for upcoming week:  
-Seth Pederson -  (Will update after looking at milestone 3 requirements)  
+Seth Pederson - Choose and implement (or research) one new feature, research getting the app deployed on Railway, and update the project board for milestone 3.
 Winifred Halm De-Souza -  Add progress summary to SPRINT-1.md.  
 David Hammond - Create SPRINT-1.md, add GitHub Projects link & minutes from weeks 10, 11, and 12 to SPRINT-1.md.  Study repository code for better understanding of project.  Research how Railway deployment works in preparation for milestone 3.  
