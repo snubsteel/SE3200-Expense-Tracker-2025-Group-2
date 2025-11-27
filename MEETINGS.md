@@ -113,3 +113,52 @@ David Hammond - Studied basics of React.  Downloaded repository and followed ins
 Seth Pederson - Choose and implement (or research) one new feature, research getting the app deployed on Railway, and update the project board for milestone 3.
 Winifred Halm De-Souza -  Add progress summary to SPRINT-1.md.  
 David Hammond - Create SPRINT-1.md, add GitHub Projects link & minutes from weeks 10, 11, and 12 to SPRINT-1.md.  Study repository code for better understanding of project.  Research how Railway deployment works in preparation for milestone 3.  
+
+# Week 13 Meeting Information:  
+Date/Time: 11/20/25, 9:00 PM  
+Meeting Purpose: Week 13 stand-up meeting for milestone 3  
+Meeting location: Discord group chat  
+Note Taker: David Hammond  
+
+## Attendees:  
+Seth Pederson  
+Winifred Halm De-Souza  
+David Hammond  
+
+## Agenda:  
+- Report progress from week 12
+- Identify key requirements for milestone 3
+- Discuss new major feature options
+- Declare personal focus for upcoming week
+- Reschedule week 14 meeting due to Thanksgiving
+
+## Topics discussed:  
+- Report progress from week 12 (All attendees)
+- Identify key requirements for milestone 3 (David Hammond):  
+      1. Implement one new major feature into the project  
+      2. Deploy project using Railway  
+      3. Write a description for the new feature  
+      4. Update project README with link to deployed application and instructions for running project locally  
+- Discuss new major feature options (All attendees):  
+     - David identified the two features which milestone 3 suggests (budgeting module, data visualization dashboard).  
+     - David suggested working on the budgeting module and offered to write a new feature proposal document for it.  
+     - Winnie and Seth agreed that the budgeting module is a good choice.  
+     - David provided a brief overview of the module (uses 50/30/20 model, expense categories are now designated as need/want, module displays difference between             user's spending and the calculated budget for need/want/savings).  
+     - Seth stated that he can work on coding the new module.  
+- Attendee personal focus for upcoming week (David Hammond)  
+    - Encouraged each attendee to declare what they will be working on during the upcoming week.  
+    - Recorded responses in meeting minutes.  
+- Reschedule week 14 meeting due to Thanksgiving  
+    - David shared that next week Thursday is Thanksgiving and recommended rescheduling the meeting  
+    - Winnie agreed that the meeting should be rescheduled and suggested 9:00PM Friday instead.  
+    - David and Seth agreed to reschedule the meeting for 9:00PM Friday (11/28).  
+
+## Progress Report for previous week (week 12):  
+Seth Pederson - Finished remaining milestone 2 requirements.  Submitted milestone 2 for group.  Researched deploying application via Railway.  
+Winifred Halm De-Souza - Wrote progress summary for SPRINT-1.md.  Tested application backend locally.  
+David Hammond - Created SPRINT-1.md.  Wrote week 12 minutes and added week 10,11, and 12 minutes to SPRINT-1.md.  Studied project repository.  Researched deploying application via Railway.  Began designing new budgeting module feature.  
+
+## Attendee focus for upcoming week:  
+Seth Pederson - Begin coding new budgeting module.  
+Winifred Halm De-Souza -  Write new feature summary required for SPRINT-2.md.  Assist in testing where needed.  
+David Hammond - Write new budgeting module feature proposal.  Run existing project locally for better understanding.  Write week 13 minutes.  
