@@ -110,7 +110,7 @@ Winifred Halm De-Souza - Wrote progress summary for SPRINT-1.md.  Learned about 
 David Hammond - Studied basics of React.  Downloaded repository and followed instructions from Seth to verify that project ran locally without issue.  Studied updated project repository.  
 
 ## Attendee focus for upcoming week:  
-Seth Pederson - Choose and implement (or research) one new feature, research getting the app deployed on Railway, and update the project board for milestone 3.
+Seth Pederson - Choose and implement (or research) one new feature, research getting the app deployed on Railway, and update the project board for milestone 3.  
 Winifred Halm De-Souza -  Add progress summary to SPRINT-1.md.  
 David Hammond - Create SPRINT-1.md, add GitHub Projects link & minutes from weeks 10, 11, and 12 to SPRINT-1.md.  Study repository code for better understanding of project.  Research how Railway deployment works in preparation for milestone 3.  
 
@@ -162,3 +162,54 @@ David Hammond - Created SPRINT-1.md.  Wrote week 12 minutes and added week 10,11
 Seth Pederson - Begin coding new budgeting module.  
 Winifred Halm De-Souza -  Write new feature summary required for SPRINT-2.md.  Assist in testing where needed.  
 David Hammond - Write new budgeting module feature proposal.  Run existing project locally for better understanding.  Write week 13 minutes.  
+
+# Week 14 Meeting Information:  
+Date/Time: 11/28/25, 9:00 PM  
+Meeting Purpose: Week 14 stand-up meeting for milestone 3  
+Meeting location: Discord group chat  
+Note Taker: David Hammond  
+
+## Attendees:  
+Seth Pederson  
+Winifred Halm De-Souza  
+Reggie Womack  
+David Hammond  
+
+## Agenda:  
+- Report progress from week 13
+- Identify remaining tasks for milestone 3
+- Discuss feedback on budgeting module proposal  
+- Declare personal focus for upcoming week
+- Discuss return to standard weekly meeting day and time
+
+## Topics discussed:  
+- Report progress from week 13 (All attendees)  
+  - Provided progress report on week 13 focus  
+- Identify remaining tasks for milestone 3 (David Hammond)  
+      1. Implement budgeting module into the project  
+      2. Deploy project using Railway  
+      3. Write a description for the new feature  
+      4. Update project README with link to deployed application and instructions for running project locally  
+- Discuss feedback on budgeting module proposal (David Hammond)  
+      - Encouraged group members to read and provide feedback on budgeting module proposal (uploaded as budgeting_module_proposal.md in repository)  
+- Attendee personal focus for upcoming week (David Hammond)  
+      - Encouraged each attendee to declare what they will be working on during the upcoming week.  
+      - Recorded responses in meeting minutes.  
+- Discuss return to standard weekly meeting day and time (All attendees)  
+      - David wanted to clarify whether the group meeting returns to the usual Thursday at 9:00PM schedule  
+      - Winifred agreed that meetings can return to the usual Thursday schedule  
+      - Reggie and Seth confirmed that future meetings should go back to being held on Thursday  
+
+## Progress Report for previous week (week 13):  
+Seth Pederson - Researched new feature design  
+Winifred Halm De-Souza - Looked into budgeting module  
+Reggie Womack - n/a  
+David Hammond - Wrote and uploaded new budgeting module feature proposal.  Wrote week 13 minutes.  
+
+## Attendee focus for upcoming week:  
+Seth Pederson - Develop and implement budgeting module feature requirements for milestone 3  
+Winifred Halm De-Souza - Continue looking into budgeting module  
+Reggie Womack - Help with budgeting module  
+David Hammond - Make changes to budgeting module proposal if team members have feedback and suggestions.  Write week 14 minutes.  
+
+
