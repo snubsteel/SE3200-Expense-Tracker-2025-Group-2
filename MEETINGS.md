@@ -212,4 +212,51 @@ Winifred Halm De-Souza - Continue looking into budgeting module
 Reggie Womack - Help with budgeting module  
 David Hammond - Make changes to budgeting module proposal if team members have feedback and suggestions.  Write week 14 minutes.  
 
+# Week 15 Meeting Information:  
+Date/Time: 12/04/25, 9:00 PM  
+Meeting Purpose: Week 15 stand-up meeting for milestone 3  
+Meeting location: Discord group chat  
+Note Taker: David Hammond  
 
+## Attendees:  
+Seth Pederson  
+Winifred Halm De-Souza  
+David Hammond  
+
+## Agenda:  
+- Report progress from week 14  
+- Identify remaining tasks for milestone 3  
+- Discuss milestone 4 report and presentation  
+- Check if additional meetings are necessary  
+- Declare personal focus for upcoming week  
+
+## Topics discussed:  
+- Report progress from week 14 (All attendees)  
+  - Provided progress report on week 14 focus  
+- Identify remaining tasks for milestone 3  
+      1. Seth will handle uploading and deploying budgeting module  
+      2. SPRINT-2.md must be made with description of budgeting module, minutes, link to deployed application, and updated README  
+- Discuss milestone 4 report and presentation (All attendees)  
+      - Milestone 4 requires a 5-7 page report and 5-10 minute presentation  
+      - David offered to write 1 page regarding budgeting module concept  
+      - Seth will also help write the report  
+      - Winnie offered to assist with the report  
+      - David would prefer to contribute to the presentation via 1-2 minute PowerPoint presentation regarding budgeting module concept  
+      - Seth will host Zoom meeting and record meeting  
+- Check if additional meetings are necessary (David Hammond)  
+      - David wanted to check if the group wanted additional meetings to prep for milestone 4  
+      - Seth recommended normal scheduled meeting with updates and communication via Discord chat  
+      - Winnie and David agreed with this plan  
+- Attendee personal focus for upcoming week (David Hammond)  
+      - Encouraged each attendee to declare what they will be working on during the upcoming week.  
+      - Recorded responses in meeting minutes.  
+
+## Progress Report for previous week (week 14):  
+Seth Pederson - Worked on budgeting module feature development.  Will be ready for deployment by deadline.  
+Winifred Halm De-Souza - Learned more about budgeting module.  
+David Hammond - Wrote week 14 minutes.  No changes were recommended for budgeting module proposal, so no changes were made.  
+
+## Attendee focus for upcoming week:  
+Seth Pederson - Finish development of budgeting module proposal.  Deploy application via Railway.  Help write milestone 4 report.  Coordinate with group regarding presentation throughout the week.  
+Winifred Halm De-Souza - Write SPRINT-2.md summary.  Help write milestone 4 report.  
+David Hammond - Write week 15 minutes.  Create SPRINT-2.md.  Add week 13, 14, and 15 minutes to SPRINT-2.md.  Write budgeting module concept overview for milestone 4 report.  Record PowerPoint presentation on budgeting module concept overview for milestone 4 presentation.  
