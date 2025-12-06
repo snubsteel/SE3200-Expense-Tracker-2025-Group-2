@@ -21,6 +21,21 @@
   max-width: 100%;
 }
 
+.new-expense__control select {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+}
+
 .new-expense__actions {
   text-align: right;
+}
+
+.category-hint {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
 }

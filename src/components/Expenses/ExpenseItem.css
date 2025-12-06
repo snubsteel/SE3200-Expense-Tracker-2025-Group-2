@@ -2,53 +2,99 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  margin: 1rem 0;
-  background-color: #4b4b4b;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  margin: 0.75rem 0;
+  background: linear-gradient(145deg, #0b1324, #111827);
+  color: #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.expense-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
 }
 
 .expense-item__description {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: flex-end;
-  flex-flow: column-reverse;
-  justify-content: flex-start;
+  gap: 0.4rem;
+  align-items: flex-start;
+  justify-content: center;
   flex: 1;
 }
 
 .expense-item h2 {
-  color: #3a3a3a;
-  font-size: 1rem;
+  color: #f8fafc;
+  font-size: 1.1rem;
   flex: 1;
-  margin: 0 1rem;
-  color: white;
+  margin: 0;
 }
 
 .expense-item__price {
   font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background-color: #40005d;
-  border: 1px solid white;
-  padding: 0.5rem;
-  border-radius: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  background-color: #93c5fd;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 10px;
+}
+
+.expense-item__category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 180px;
+}
+
+.category-pill-clickable {
+  cursor: pointer;
+}
+
+.category-select-inline {
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 0.35rem 0.5rem;
+}
+
+.expense-item__actions {
+  display: flex;
+  align-items: center;
+}
+
+.delete-expense-button {
+  background: #b91c1c;
+  color: #fef2f2;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-expense-button:hover {
+  background: #991b1b;
 }
 
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    flex: 1;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .expense-item__description h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .expense-item__price {
-    font-size: 1.25rem;
-    padding: 0.5rem 1.5rem;
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
   }
 }

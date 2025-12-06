@@ -122,7 +122,10 @@ router.post('/login', async (req, res, next) => {
 // Verify the current token and surface the associated profile info to the caller.
 router.get('/me', authRequired, async (req, res, next) => {
   try {
-    const userResult = await pool.query('SELECT id, email, name, created_at FROM users WHERE id = $1', [req.auth.userId]);
+    const userResult = await pool.query(
+      'SELECT id, email, name, created_at, annual_income_cents FROM users WHERE id = $1',
+      [req.auth.userId],
+    );
 
     if (userResult.rowCount === 0) {
       return res.status(404).json({
@@ -139,6 +142,7 @@ router.get('/me', authRequired, async (req, res, next) => {
       id: user.id,
       email: user.email,
       name: user.name,
+      annualIncomeCents: user.annual_income_cents ?? null,
       createdAt: user.created_at,
     });
   } catch (err) {

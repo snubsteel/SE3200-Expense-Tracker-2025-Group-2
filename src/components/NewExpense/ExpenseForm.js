@@ -6,6 +6,8 @@ const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+    // Capture selected category (id or empty for none) so expenses can be associated inline.
+    const [selectedCategoryId, setSelectedCategoryId] = useState('');
     const currentYear = new Date().getFullYear();
     const maxDate = `${currentYear + 1}-12-31`;
 
@@ -48,7 +50,8 @@ const ExpenseForm = (props) => {
         const expenseData ={
             title: enteredTitle,
             amount: +enteredAmount,
-            date: new Date(enteredDate)
+            date: new Date(enteredDate),
+            categoryId: selectedCategoryId || null,
         };
         console.log(expenseData);
         props.onSaveExpenseData(expenseData);
@@ -56,6 +59,7 @@ const ExpenseForm = (props) => {
         setEnteredAmount('');
         setEnteredDate('');
         setEnteredTitle('');
+        setSelectedCategoryId('');
 
     };
 
@@ -64,6 +68,7 @@ const ExpenseForm = (props) => {
         setEnteredAmount('');
         setEnteredDate('');
         setEnteredTitle('');
+        setSelectedCategoryId('');
         
     };
 
@@ -80,6 +85,17 @@ const ExpenseForm = (props) => {
             <div className="new-expense__control">
                 <label>Date</label>
                 <input type='date' min="2019-01-01" max={maxDate} value={enteredDate} onChange={dateChangeHandler}/>
+            </div>
+            <div className="new-expense__control">
+                <label>Category</label>
+                <select value={selectedCategoryId} onChange={(e) => setSelectedCategoryId(e.target.value)}>
+                    <option value=''>No category</option>
+                    {(props.categories || []).map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                            {cat.name}
+                        </option>
+                    ))}
+                </select>
             </div>
         </div>
         <div className="new-expense__actions">

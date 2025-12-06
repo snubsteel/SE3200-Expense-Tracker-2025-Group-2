@@ -24,11 +24,16 @@ const NewExpense = (props) => {
 
         {!vis && (<button onClick={AddNewExpenseButtonHandler}>Add New Expense</button>)}
         
-        {vis && <ExpenseForm visibility={setVis} onSaveExpenseData={saveExpenseDataHandler} />}
+        {vis && (
+          <ExpenseForm
+            visibility={setVis}
+            onSaveExpenseData={saveExpenseDataHandler}
+            categories={props.categories}
+          />
+        )}
         
     </div>
   );
 };
 
 export default NewExpense;
-

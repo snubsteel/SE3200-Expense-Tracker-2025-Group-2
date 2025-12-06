@@ -9,6 +9,7 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(60) NOT NULL,
     name VARCHAR(50),
+    annual_income_cents INT CHECK (annual_income_cents >= 0),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE categories (
     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     name VARCHAR(50) NOT NULL,
     color VARCHAR(7),
+    budget_type VARCHAR(10) NOT NULL DEFAULT 'need' CHECK (budget_type IN ('need', 'want')),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     UNIQUE(user_id, name)
 );

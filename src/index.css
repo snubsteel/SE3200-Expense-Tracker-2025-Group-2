@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Extend dark background to the entire viewport so no white bars appear on the sides. */
+  background: linear-gradient(180deg, #0b1224, #0d152f);
+  min-height: 100vh;
+  color: #e5e7eb;
 }
 
 code {

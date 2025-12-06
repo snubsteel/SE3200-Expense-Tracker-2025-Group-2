@@ -36,3 +36,344 @@
     transform: rotate(360deg);
   }
 }
+
+/* Polished app shell layout */
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: #e5e7eb;
+  background: linear-gradient(180deg, #0b1224, #0d152f); /* Dark theme background applied across the app */
+  min-height: 100vh;
+}
+
+.dark-panel {
+  background: #0f172a;
+  color: #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+}
+
+/* Top navigation with active state */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #0f172a;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+}
+
+.top-nav button {
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid transparent;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.top-nav button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.top-nav button.active {
+  background: #2563eb;
+  color: #f8fafc;
+  border-color: #2563eb;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* Section containers */
+.section {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #0f172a; /* Dark-mode section wrapper so content sits on a softer slate instead of bright white */
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  color: #e5e7eb;
+}
+
+.section h2 {
+  margin: 0 0 0.5rem;
+  color: #f1f5f9;
+}
+
+.section p {
+  margin: 0.35rem 0;
+  color: #cbd5e1;
+}
+
+/* Budget cards grid */
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.budget-card {
+  background: linear-gradient(145deg, #0b1324, #111827);
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.budget-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.budget-card h4 {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.budget-card p {
+  margin: 0.15rem 0;
+  font-size: 0.95rem;
+}
+
+.budget-figure {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.budget-small {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
+/* Category list cards */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(160deg, #0f172a, #111c32); /* Dark themed card for category rows */
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25); /* Dark-mode category card */
+  color: #e5e7eb;
+}
+
+.category-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-color {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 2px solid #1f2937;
+  flex-shrink: 0;
+}
+
+.category-pill {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pill-need {
+  background: #1d4ed8;
+  color: #e5edff;
+}
+
+.pill-want {
+  background: #b45309;
+  color: #fff3d9;
+}
+
+.category-actions button {
+  background: #0f172a;
+  color: #e5e7eb;
+  border: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.category-actions button:hover {
+  background: #1e293b;
+}
+
+/* Preset color picker buttons for categories (fixed palette instead of free-form hex) */
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.color-option {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+}
+
+.color-option:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.color-option.selected {
+  border-color: #38bdf8;
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
+}
+
+.color-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 2px solid #0f172a;
+}
+
+/* Expenses list polish */
+.expenses-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  padding: 1rem;
+  text-align: center;
+  color: #e5e7eb; /* High contrast on dark backgrounds */
+  background: #111827;
+  border-radius: 12px;
+  border: 1px dashed #1f2937;
+}
+
+/* Skeleton placeholders */
+.skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+  border-radius: 10px;
+}
+
+.skeleton-row {
+  height: 64px;
+  width: 100%;
+}
+
+.skeleton-card {
+  height: 180px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 1rem;
+  }
+
+  .top-nav {
+    flex-wrap: wrap;
+  }
+
+  .category-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .category-actions {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+/* Auth layout: vertically and horizontally center the card on the viewport */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  align-items: center; /* center horizontally */
+  background: linear-gradient(180deg, #0b1224, #0d152f);
+  padding: 2rem 1rem;
+}
+
+.app-title {
+  color: #f8fafc;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #111827;
+  color: #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* Auth form alignment */
+.auth-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.auth-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.auth-form label {
+  font-weight: 600;
+}
+
+.auth-form input,
+.auth-form button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-form button {
+  margin-top: 0.25rem;
+}

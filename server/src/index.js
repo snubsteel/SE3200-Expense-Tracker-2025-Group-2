@@ -8,6 +8,8 @@ import pool from './db.js';
 import { errorHandler } from './middleware/error.js';
 import { authRequired } from './middleware/authRequired.js';
 import authRouter from './routes/auth.js';
+import budgetRouter from './routes/budget.js';
+import categoriesRouter from './routes/categories.js';
 import expensesRouter from './routes/expenses.js';
 
 const app = express();
@@ -52,8 +54,10 @@ app.get('/health', async (req, res, next) => {
 // Auth routes live under /api/auth and get a dedicated rate limiter.
 app.use('/api/auth', authLimiter, authRouter);
 
-// Expenses endpoints stay behind JWT auth so users only see their own data.
+// Authenticated application routes keep data scoped per user.
+app.use('/api/categories', authRequired, categoriesRouter);
 app.use('/api/expenses', authRequired, expensesRouter);
+app.use('/api/budget', authRequired, budgetRouter);
 
 // Fallback ensures unknown routes respond cleanly once routers run.
 app.use((req, res) => {

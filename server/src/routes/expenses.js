@@ -59,4 +59,91 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+// PUT /api/expenses/:id - allow updating category assignment inline from the UI.
+router.put('/:id', async (req, res, next) => {
+  const expenseId = req.params.id;
+  // Basic UUID validation to avoid malformed ids reaching the database.
+  if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/.test(expenseId)) {
+    return res.status(400).json({
+      error: {
+        code: 'validation_error',
+        message: 'Expense id must be a valid UUID.',
+      },
+    });
+  }
+
+  const { category_id } = req.body;
+
+  // Ensure category_id is either null or a valid UUID; other fields remain unchanged.
+  if (
+    category_id !== null &&
+    category_id !== undefined &&
+    !/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/.test(category_id)
+  ) {
+    return res.status(400).json({
+      error: {
+        code: 'validation_error',
+        message: 'category_id must be a valid UUID or null.',
+      },
+    });
+  }
+
+  try {
+    const result = await pool.query(
+      `UPDATE expenses
+       SET category_id = $1, updated_at = now()
+       WHERE id = $2 AND user_id = $3
+       RETURNING id, user_id, category_id, amount_cents, currency, occurred_on, note, created_at, updated_at`,
+      [category_id ?? null, expenseId, req.auth.userId],
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({
+        error: {
+          code: 'not_found',
+          message: 'Expense not found.',
+        },
+      });
+    }
+
+    return res.status(200).json(result.rows[0]);
+  } catch (err) {
+    return next(err);
+  }
+});
+
+// DELETE /api/expenses/:id - allow users to remove expenses from their list.
+router.delete('/:id', async (req, res, next) => {
+  const expenseId = req.params.id;
+
+  if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/.test(expenseId)) {
+    return res.status(400).json({
+      error: {
+        code: 'validation_error',
+        message: 'Expense id must be a valid UUID.',
+      },
+    });
+  }
+
+  try {
+    const result = await pool.query('DELETE FROM expenses WHERE id = $1 AND user_id = $2', [
+      expenseId,
+      req.auth.userId,
+    ]);
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({
+        error: {
+          code: 'not_found',
+          message: 'Expense not found.',
+        },
+      });
+    }
+
+    return res.status(204).send();
+  } catch (err) {
+    return next(err);
+  }
+});
+
 export default router;

@@ -104,3 +104,77 @@ export function createExpense(payload) {
     body: payload,
   });
 }
+
+// Updates an expense (used here to change categories inline from the expenses list).
+export function updateExpense(id, payload) {
+  return apiRequest(`/expenses/${id}`, {
+    method: 'PUT',
+    body: payload,
+  });
+}
+
+// Deletes an expense record.
+export function deleteExpense(id) {
+  return apiRequest(`/expenses/${id}`, {
+    method: 'DELETE',
+  });
+}
+
+// Fetches the current user's profile, including budgeting metadata such as annual income.
+export function getCurrentUser() {
+  return apiRequest('/auth/me');
+}
+
+// Retrieves the authenticated user's categories, mapping budget_type -> budgetType for UI clarity.
+export async function fetchCategories() {
+  const response = await apiRequest('/categories');
+  const items = response?.items ?? [];
+  return items.map((category) => ({
+    ...category,
+    budgetType: category.budget_type || category.budgetType || 'need',
+  }));
+}
+
+// Creates a category while translating the UI-friendly budgetType into the backend's budget_type column.
+export function createCategory({ name, color, budgetType }) {
+  return apiRequest('/categories', {
+    method: 'POST',
+    body: {
+      name,
+      color: color ?? null,
+      budget_type: budgetType, // backend expects snake_case
+    },
+  });
+}
+
+// Updates a category and ensures the need/want flag is persisted using the backend's expected shape.
+export function updateCategory(id, { name, color, budgetType }) {
+  return apiRequest(`/categories/${id}`, {
+    method: 'PUT',
+    body: {
+      ...(name !== undefined ? { name } : {}),
+      ...(color !== undefined ? { color } : {}),
+      ...(budgetType !== undefined ? { budget_type: budgetType } : {}),
+    },
+  });
+}
+
+// Deletes a category; expenses referencing it will fall back to null via FK ON DELETE SET NULL.
+export function deleteCategory(id) {
+  return apiRequest(`/categories/${id}`, {
+    method: 'DELETE',
+  });
+}
+
+// Stores the user's after-tax yearly income in dollars; backend persists cents to align with expenses.
+export function setAnnualIncome(annualIncome) {
+  return apiRequest('/budget/income', {
+    method: 'PUT',
+    body: { annualIncome },
+  });
+}
+
+// Pulls the 50/30/20 budget summary for a given calendar year.
+export function getBudgetSummary(year) {
+  return apiRequest(`/budget/summary?year=${year}`);
+}
