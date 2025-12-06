@@ -15,7 +15,9 @@ function DisplayExpenses(props) {
     // console.log(year);
   }
 
-  const filteredExpenses = props.expenses_list.filter(expense => expense.date.getFullYear().toString() == filterYear);
+  const filteredExpenses = props.expenses_list.filter(
+    (expense) => expense.date.getFullYear().toString() === filterYear,
+  );
   const categoriesById = useMemo(() => {
     const map = new Map();
     (props.categories || []).forEach((cat) => {

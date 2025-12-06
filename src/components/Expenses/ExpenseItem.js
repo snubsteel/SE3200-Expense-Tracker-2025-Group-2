@@ -17,7 +17,6 @@ function ExpenseItem(props) {
   const [isEditingCategory, setIsEditingCategory] = useState(false);
   const [pendingCategoryId, setPendingCategoryId] = useState(props.categoryId || "");
 
-  const categoryLabel = props.category ? props.category.name : "No category";
   const categoryBudgetType = props.category ? props.category.budgetType : null;
 
   const handleCategoryChange = async (event) => {
@@ -44,13 +43,9 @@ function ExpenseItem(props) {
             style={{backgroundColor: props.category?.color || undefined}}
             onClick={() => setIsEditingCategory(true)}
           >
-            {props.category ? (
-              <>
-                {props.category.name} · {categoryBudgetType ? categoryBudgetType.toUpperCase() : ""}
-              </>
-            ) : (
-              "No category"
-            )}
+            {props.category
+              ? `${props.category.name} · ${categoryBudgetType ? categoryBudgetType.toUpperCase() : ""}`
+              : "No category"}
           </button>
         ) : (
           <select
