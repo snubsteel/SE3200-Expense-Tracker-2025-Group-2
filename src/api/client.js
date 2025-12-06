@@ -1,7 +1,8 @@
 const TOKEN_STORAGE_KEY = 'expenseTrackerToken';
-// API base: prefer env override for deployed frontend; fall back to hosted API domain, then same-origin proxy (/api).
+// API base: prefer env override for deployed frontend; fall back to hosted API domain + /api, then same-origin proxy (/api).
 const apiBaseFromEnv = (typeof process !== 'undefined' && process.env.REACT_APP_API_BASE) || '';
-const DEFAULT_API_BASE = 'https://se3200-expense-tracker-2025-group-2-production.up.railway.app';
+// Ensure the default includes the /api prefix to match backend routes.
+const DEFAULT_API_BASE = 'https://se3200-expense-tracker-2025-group-2-production.up.railway.app/api';
 const API_BASE_PATH =
   apiBaseFromEnv.trim() ||
   (typeof window !== 'undefined' && window.REACT_APP_API_BASE) ||
