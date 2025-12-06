@@ -17,18 +17,19 @@ const app = express();
 // Trust a single proxy (e.g., load balancer) so express-rate-limit can honor X-Forwarded-For headers safely.
 app.set('trust proxy', 1);
 
-// Security-related middleware comes first so every request gets headers, CORS,
-// and JSON parsing before it reaches any business logic.
-app.use(helmet());
-// Explicit CORS configuration to satisfy browser preflight from the deployed frontend.
+// CORS must run before helmet so preflights get the right headers.
 const corsOptions = {
   origin: true, // reflect the request origin
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false,
+  optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
+
+// Security-related middleware comes after CORS so it doesn't strip CORS headers.
+app.use(helmet());
 app.use(express.json());
 
 // Tight rate limit just for auth endpoints to reduce brute-force attempts.
