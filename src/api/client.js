@@ -86,6 +86,11 @@ export async function loginUser({ email, password }) {
     body: { email, password },
   });
 
+  if (!loginResponse || !loginResponse.token) {
+    // Guard against misconfigured API base or unexpected responses in production deploys.
+    throw new Error('Login response did not include a token. Please verify the API base URL configuration.');
+  }
+
   setAuthToken(loginResponse.token);
 
   // After storing the token we can ask the backend who the user is.
