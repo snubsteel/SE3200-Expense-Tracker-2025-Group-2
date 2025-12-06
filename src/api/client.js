@@ -1,5 +1,6 @@
 const TOKEN_STORAGE_KEY = 'expenseTrackerToken';
-const API_BASE_PATH = '/api';
+// API base: use explicit env override for deployed frontend, fall back to same-origin proxy (/api) for local dev.
+const API_BASE_PATH = (typeof process !== 'undefined' && process.env.REACT_APP_API_BASE) || '/api';
 
 let authToken = null; // Keeps the JWT in memory so we avoid repeated storage reads.
 
