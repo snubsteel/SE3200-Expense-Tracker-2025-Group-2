@@ -26,7 +26,6 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
-app.options('/*', cors(corsOptions));
 
 // Security-related middleware comes after CORS so it doesn't strip CORS headers.
 app.use(helmet());
