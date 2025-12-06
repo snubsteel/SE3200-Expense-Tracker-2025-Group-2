@@ -1,6 +1,11 @@
 const TOKEN_STORAGE_KEY = 'expenseTrackerToken';
-// API base: use explicit env override for deployed frontend, fall back to same-origin proxy (/api) for local dev.
-const API_BASE_PATH = (typeof process !== 'undefined' && process.env.REACT_APP_API_BASE) || '/api';
+// API base: prefer env override for deployed frontend; fall back to hosted API domain, then same-origin proxy (/api).
+const apiBaseFromEnv = (typeof process !== 'undefined' && process.env.REACT_APP_API_BASE) || '';
+const DEFAULT_API_BASE = 'https://se3200-expense-tracker-2025-group-2-production.up.railway.app';
+const API_BASE_PATH =
+  apiBaseFromEnv.trim() ||
+  (typeof window !== 'undefined' && window.REACT_APP_API_BASE) ||
+  DEFAULT_API_BASE;
 
 let authToken = null; // Keeps the JWT in memory so we avoid repeated storage reads.
 
