@@ -2,153 +2,71 @@
 
 ![Screenshot 2023-05-17 at 7 14 42 PM](https://github.com/ReeveFernandes/Expense-Tracker/assets/92554845/552e0672-02b5-4464-87ba-7ec7755757b9)
 
-
-Welcome to Expense Tracker, a web application built with React.js that helps you keep track of your expenses. This expense tracker provides a simple and intuitive interface for managing your financial transactions and monitoring your spending habits.
+Expense Tracker is a React + Express + PostgreSQL web app that helps you manage expenses, categorize spending, and stay aligned with budgeting goals (including the 50/30/20 model).
 
 ## Features
 
-- **Expense Categories:** Categorize your expenses for better organization and analysis.
-- **Add and Delete Expenses:** Easily add new expenses.
-- **Transaction History:** View a list of all your transactions along with the date.
-- **Filter and Search:** Filter expenses by category and search for specific transactions.
-- **Expense Summary:** Get a quick overview of your total income and expenses.
-- **Responsive Design:** Enjoy a seamless experience across different devices and screen sizes.
+- Expense categories and history with filtering
+- Add/delete expenses with persistent storage
+- Income/expense summary and responsive UI
+- Backend authentication and JWT-protected APIs
+- Budgeting module using 50/30/20 (Needs/Wants/Savings) with variance highlights
 
-## Live Demo
+## Deployed App
 
-You can access the live demo of the Expense Tracker by clicking [here](https://my-expense-tracker.onrender.com/).
+- Railway: https://se3200-expense-tracker.up.railway.app/
 
-## Getting Started
+## Run Locally (Full Stack)
 
-To run the application locally and explore its codebase, follow these steps:
+**Prerequisites:** Node.js 18+, PostgreSQL, npm.
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ReeveFernandes/Expense-Tracker.git
-```
-
-2. Navigate to the project directory:
+1. Clone and install
 
 ```bash
-cd Expense-Tracker
-```
-
-3. Install the dependencies:
-
-```bash
-npm install
-```
-
-4. Start the development server:
-
-```bash
-npm start
-```
-
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see the application in action.
-
-## Technologies Used
-
-- React: [^17.0.2](https://reactjs.org/)
-
-## Acknowledgements
-
-- The Expense Tracker project is based on the React - The Complete Guide (incl Hooks, React Router, Redux) course by Academind by Maximilian Schwarzmüller on Udemy.
-
-Enjoy tracking your expenses with Expense Tracker!
-
----
-
-Quick Setup Guide for Running the Project Locally
-
-1. Install the Required Tools
-
-Node.js (version 18 or newer)
-
-PostgreSQL
-
-pgAdmin (optional)
-
-2. Clone the Repo
-git clone https://github.com/snubsteel/SE3200-Expense-Tracker-2025-Group-2
+git clone https://github.com/snubsteel/SE3200-Expense-Tracker-2025-Group-2.git
 cd SE3200-Expense-Tracker-2025-Group-2
+npm install               # frontend
+cd server && npm install  # backend
+```
 
-3. Set Up the Database
-Option A — Using psql
+2. Set up the database (psql example)
+
+```bash
 psql -U postgres
 CREATE DATABASE tracker_db;
 \c tracker_db
 \i database/setup_db.sql;
+```
 
-Option B — Using pgAdmin
+Adjust the user/password/host if your Postgres config differs.
 
-Open pgAdmin
+3. Configure backend env  
+   Create `server/.env` (copy from `.env.example` to start):
 
-Create a database named tracker_db
-
-Open database/setup_db.sql and run it
-
-4. Create Your Backend .env File
-
-Inside the server folder, create a file named .env:
-
-DATABASE_URL=postgres://postgres:pass@localhost:5432/tracker_db
-JWT_SECRET=dev_secret_123
+```
+DATABASE_URL=postgres://user:pass@localhost:5432/tracker_db
 PORT=4000
+JWT_SECRET=changeme
+NODE_ENV=development
 BCRYPT_SALT_ROUNDS=12
+```
 
-If your Postgres password isn’t pass, change it.
+4. Run the servers
 
-5. Install Dependencies
-Frontend:
-npm install
+- Backend (terminal 1):
+  ```bash
+  cd server
+  npm run dev   # http://localhost:4000
+  ```
+- Frontend (terminal 2 from project root):
+  ```bash
+  npm start     # http://localhost:3000
+  ```
+  The React dev server proxies API calls to `http://localhost:4000`.
 
-Backend:
-cd server
-npm install
+## Technologies Used
 
-6. Start the Servers
-
-Backend:
-cd server
-npm run dev
-Runs on: http://localhost:4000
-
-Frontend:
-Open a second terminal:
-npm start
-Runs on: http://localhost:3000
-
-How to Test the App
-1. Register
-
-Click "Switch to Register"
-
-Enter name, email, and a password (8+ characters)
-
-2. Log In
-
-Use the account you just created
-
-After login, the app should load your expenses
-
-3. Add an Expense
-
-Click "Add New Expense"
-
-Enter a title, amount, and date
-
-It should appear immediately and also be saved to the database
-
-4. Refresh the Page
-
-You should still be logged in
-
-All your expenses should re-load automatically
-
-5. Logout
-
-Click the Logout button
-
-Expenses clear and login form returns
+- React 18
+- Express / Node.js
+- PostgreSQL
+- JWT, bcrypt, helmet, cors
