@@ -4,7 +4,8 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon --watch src --ext js --exec node src/index.js"
+    "dev": "nodemon --watch src --ext js --exec node src/index.js",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
