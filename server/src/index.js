@@ -20,7 +20,15 @@ app.set('trust proxy', 1);
 // Security-related middleware comes first so every request gets headers, CORS,
 // and JSON parsing before it reaches any business logic.
 app.use(helmet());
-app.use(cors());
+// Explicit CORS configuration to satisfy browser preflight from the deployed frontend.
+const corsOptions = {
+  origin: true, // reflect the request origin
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Tight rate limit just for auth endpoints to reduce brute-force attempts.
